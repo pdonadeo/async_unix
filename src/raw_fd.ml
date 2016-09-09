@@ -196,7 +196,7 @@ let create ?(avoid_nonblock_if_possible = false) (kind : Kind.t) file_descr info
 
        We don't really care about doing nonblocking I/O on other character devices,
        e.g. /dev/random. *)
-    | Char -> false
+    | Char -> true
     | Fifo -> not avoid_nonblock_if_possible
     (* All one can do on a `Bound socket is listen() to it, and we don't use listen()
        in a nonblocking way. *)
