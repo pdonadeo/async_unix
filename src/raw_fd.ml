@@ -206,7 +206,7 @@ let create ?(avoid_setting_nonblock = false) (kind : Kind.t) file_descr info =
 
          We don't really care about doing nonblocking I/O on other character devices,
          e.g. /dev/random. *)
-      | Char -> false
+      | Char -> true
       | Fifo -> true
       | Socket _ ->
         (* All one can do on a `Bound socket is listen() to it, and we don't use listen()
